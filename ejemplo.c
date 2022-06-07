@@ -2,10 +2,17 @@
 #include "figures.h"
 
 void display(){
-  char** blackKnight = reverse(knight);
-  interpreter(blackKnight);
+  //caballo negro
+  /*char** blackKnight = reverse(knight);
+  interpreter(blackKnight);*/
 
-  char** Square = repeatH(whiteSquare,8);
-  interpreter(Square);  
+  //cuadro blanco y negro
+  char** Black = reverse(repeatH(whiteSquare,0));
+  char** White = repeatH(whiteSquare,0);
+
+  char** Union = join(Black, White);
+  interpreter(Union);
 }
+  
+  
 
