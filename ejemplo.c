@@ -7,11 +7,12 @@ void display(){
   interpreter(blackKnight);*/
 
   //cuadro blanco y negro
-  char** Black = reverse(repeatH(whiteSquare,0));
-  char** White = repeatH(whiteSquare,0);
-
-  char** Union = join(Black, White);
-  interpreter(Union);
+  char** Black = reverse(whiteSquare);
+  char** White = whiteSquare;
+  char** Union = join(White, Black);
+  
+  char** Suceso = repeatH(Union,4);
+  interpreter(Suceso); 
 }
   
   
