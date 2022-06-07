@@ -1,0 +1,5 @@
+make: Entering directory '/home/kevin/Ajedrez/tarea-del-ajedrez-c'
+g++ -c main.c
+g++ main.o chess.o .c -lglut -lGL -lGLU -w -o 
+make: Leaving directory '/home/kevin/Ajedrez/tarea-del-ajedrez-c'
+ 
