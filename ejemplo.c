@@ -29,11 +29,11 @@ void display(){
   char** AlfTorCab = join(join(bishop,knight),rook);
   char** ReRa = join(join(king,queen),AlfTorCab);
 
-  //se sobreponen las piezas sobre los cuadros
+  //Fichas Blancas, se sobreponen las piezas sobre los cuadros
   char** PiezasW = join(CabTorAlf,ReRa);
   char** FilaW = superImpose(PiezasW,SFilas);
 
-  //Fichas Negras
+  //Fila Fichas Negras
   char** FilaB = reverse(superImpose(PiezasW,SFilas));
   
   //Fila Peones Negros
@@ -48,8 +48,16 @@ void display(){
   char** UnionRest = up(SFilas,Inverso);
   char** TableroRest = repeatV(UnionRest,2);
 
-  interpreter(TableroRest);
-  
+  //Fichas Blancas con peones
+  char** FiWhite=join(FilaW,FiPeoW);
+
+  //Fichas Negras con peones
+  char** FiBlack=join(FiPeoB,FilaB);
+  //Tablero Completo
+  char** TabCompleto = join(join(FiWhite,TableroRest),FiBlack);
+
+  interpreter(TabCompleto);
+
 }
   
   
