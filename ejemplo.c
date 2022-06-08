@@ -11,7 +11,9 @@ void display(){
   char** Union = join(Black, whiteSquare);
   
   char** Suceso = repeatH(Union,4);
-  interpreter(Suceso); 
+  char** Espejo =flipV(Suceso);
+  
+  interpreter(Espejo); 
 }
   
   
