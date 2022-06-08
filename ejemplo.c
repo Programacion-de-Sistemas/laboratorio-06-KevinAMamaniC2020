@@ -23,9 +23,19 @@ void display(){
 
   char** torreW=rook;
 
-  char** juntar=superImpose(rook,whiteSquare);
-  interpreter(juntar);
+  //torre con cuadro blanco
+  char** Black = reverse(whiteSquare);
+  char** Union = join(Black, whiteSquare);
+  char** SFilas = repeatH(Union,4);
 
+  char** CabTorAlf = join(join(rook, knight),bishop);
+  char** AlfTorCab = join(join(bishop,knight),rook);
+  char** ReRa = join(join(king,queen),AlfTorCab);
+
+  char** PiezasW = join(CabTorAlf,ReRa);
+  char** FilaW = superImpose(PiezasW,SFilas);
+
+  interpreter(FilaW);
 }
   
   
