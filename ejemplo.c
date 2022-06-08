@@ -43,7 +43,13 @@ void display(){
   //Fila Peones Blancos
   char** FiPeoW = reverse(superImpose(PeonesB,SFilas));
 
-  interpreter(FiPeoW);
+  //Tablero restante
+  char** Inverso = flipV(SFilas);
+  char** UnionRest = up(SFilas,Inverso);
+  char** TableroRest = repeatV(UnionRest,2);
+
+  interpreter(TableroRest);
+  
 }
   
   
