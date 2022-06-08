@@ -19,20 +19,19 @@ void display(){
   char** Tablero = repeatV(UnionFilas,4);
   interpreter(Tablero); */
 
-  char** CuadroB=reverse(whiteSquare);
-
-  char** torreW=rook;
-
-  //torre con cuadro blanco
+  //Se crea la fila de los cuadros
   char** Black = reverse(whiteSquare);
   char** Union = join(Black, whiteSquare);
   char** SFilas = repeatH(Union,4);
 
+  //se crea una fila de piezas blancas
   char** CabTorAlf = join(join(rook, knight),bishop);
   char** AlfTorCab = join(join(bishop,knight),rook);
   char** ReRa = join(join(king,queen),AlfTorCab);
 
-  char** PiezasW = join(CabTorAlf,ReRa);
+  //se sobreponen las piezas sobre los cuadros
+   //se cambia a piezas negras poniendo un reverse
+  char** PiezasW = reverse(join(CabTorAlf,ReRa));
   char** FilaW = superImpose(PiezasW,SFilas);
 
   interpreter(FilaW);
