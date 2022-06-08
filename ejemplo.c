@@ -30,11 +30,17 @@ void display(){
   char** ReRa = join(join(king,queen),AlfTorCab);
 
   //se sobreponen las piezas sobre los cuadros
-   //se cambia a piezas negras poniendo un reverse
-  char** PiezasW = reverse(join(CabTorAlf,ReRa));
+  char** PiezasW = join(CabTorAlf,ReRa);
   char** FilaW = superImpose(PiezasW,SFilas);
 
-  interpreter(FilaW);
+  //Peones Blancos
+
+  //Peones Negros
+
+  //Fichas Negras
+
+  char** FilaB = reverse(superImpose(PiezasW,SFilas));
+  interpreter(FilaB);
 }
   
   
