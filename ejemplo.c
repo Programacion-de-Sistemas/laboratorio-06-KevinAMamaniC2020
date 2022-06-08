@@ -33,14 +33,17 @@ void display(){
   char** PiezasW = join(CabTorAlf,ReRa);
   char** FilaW = superImpose(PiezasW,SFilas);
 
-  //Peones Blancos
-
-  //Peones Negros
-
   //Fichas Negras
-
   char** FilaB = reverse(superImpose(PiezasW,SFilas));
-  interpreter(FilaB);
+  
+  //Fila Peones Negros
+  char** PeonesB = reverse(repeatH(pawn,8));
+  char** FiPeoB = superImpose(PeonesB,SFilas);
+ 
+  //Fila Peones Blancos
+  char** FiPeoW = reverse(superImpose(PeonesB,SFilas));
+
+  interpreter(FiPeoW);
 }
   
   
