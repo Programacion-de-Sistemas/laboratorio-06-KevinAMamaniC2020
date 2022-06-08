@@ -13,7 +13,10 @@ void display(){
   char** Suceso = repeatH(Union,4);
   char** Espejo =flipV(Suceso);
   
-  interpreter(Espejo); 
+  char** UnionFilas = up(Suceso , Espejo);
+  char** Tablero = repeatV(UnionFilas,4);
+  interpreter(Tablero); 
+
 }
   
   
