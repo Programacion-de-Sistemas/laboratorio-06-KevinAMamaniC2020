@@ -49,12 +49,12 @@ void display(){
   char** TableroRest = repeatV(UnionRest,2);
 
   //Fichas Blancas con peones
-  char** FiWhite=join(FilaW,FiPeoW);
+  char** FiWhite=up(FilaW,FiPeoW);
 
   //Fichas Negras con peones
-  char** FiBlack=join(FiPeoB,FilaB);
+  char** FiBlack=up(FiPeoB,FilaB);
   //Tablero Completo
-  char** TabCompleto = join(join(FiWhite,TableroRest),FiBlack);
+  char** TabCompleto = up(up(FiWhite,TableroRest),FiBlack);
 
   interpreter(TabCompleto);
 
