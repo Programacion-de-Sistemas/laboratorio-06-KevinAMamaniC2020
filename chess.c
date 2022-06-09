@@ -42,7 +42,7 @@ char** rotateR(char** y){
 }
 
 char** reverse(char** y){
-
+    
 }
 
 char** superImpose(char** y, char** x){
