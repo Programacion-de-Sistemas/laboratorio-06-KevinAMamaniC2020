@@ -108,10 +108,15 @@ char** up(char** y, char** x){
 }
 
 char** repeatH(char** y, int x){
-    
+    for(int i=0;i<=x;i++){
+        char** z=join(char** y,char** y);
+        return z;
+    }
 }
 
-char** repeatV(char** y, int x){
-
+char** repeatV(char** y, int x){      
+    for(int i=0;i<=x;i++){
+        return y;    
+    }
 }
 
