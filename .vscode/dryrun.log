@@ -1,3 +1,4 @@
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/kevin/Ajedrez/tarea-del-ajedrez-c'
 g++ -c main.c chess.c
 g++ main.o .c -lglut -lGL -lGLU -w -o 
