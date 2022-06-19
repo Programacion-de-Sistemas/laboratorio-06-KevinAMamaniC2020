@@ -64,7 +64,7 @@ char** reverse(char** y){
 }
 
 char** superImpose(char** y, char** x){
-
+    return y;
 }
 
 char** join(char** y, char** x){
