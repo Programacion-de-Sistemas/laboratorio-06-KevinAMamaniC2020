@@ -1,12 +1,17 @@
 #include "chess.h"
 #include "figures.h"
 
+//podria hacerlo con un sizeof pero todas 
+//las funciones tendrian que recibir el parametro tamaño
+//pero como todas las figuras tienen un mismo tamaño no varia mucho
+int tamaño=59;
+
 char** flipV(char** y){
     // Se crea un puntero para recorrer la cadena dentro del array
     char *p;
     p = y;
     //recorre todo el array
-    for(int i=0;i<sizeof(y);i++){
+    for(int i=0;i<tamaño;i++){
         //recorremos con el puntero la cadena
         while(*p != '\0'){
             y[i] = strev(p);    //se invierte la cadena en una posicion
@@ -18,8 +23,13 @@ char** flipV(char** y){
 
 char** flipH(char** y){
     //recorre todo el array e invierte sus elementos
-    for(int i=sizeof(y); i>=0;i--)
-        return y;
+    char* temp;
+    for(int i=0;i<t/2;i++){
+        temp=y[i];
+        y[i]=y[t-i-1];
+        y[t-i-1]=temp;
+    }
+    return y;
 }
 
 char** rotateL(char** y){
@@ -44,7 +54,6 @@ char** rotateR(char** y){
 char** reverse(char** y){
     char *p; //creamos un puntero
     p=y;    
-    int tamaño = sizeof(y);//tamaño del array
     for(int i=0;i<tamaño;i++){  //recorrer array
         while(*p != '\0'){      //recorremos los elementos con el puntero
             if(*p =='_' || *p =='.'){//invierte el color definifo
@@ -68,20 +77,19 @@ char** superImpose(char** y, char** x){
 }
 
 char** join(char** y, char** x){
-    int tamañoY=sizeof(y); //tamaño primera cadena
-    int tamañoX=sizeof(x); //tamaño segunda cadena
     int cadenas=0;
-
-    for(int i=0;i<tamañoY;i++){
+    //respecto a la cadena Y
+    for(int i=0;i<tamaño;i++){
         int cadenas =+ strlen(y[i]);//extraemos elementos de la cadena
     }
-    int tamañoZ = cadenas+tamañoY*strlen(x); //juntamos los tamaños de las cadenas
-    char** z=malloc((tamañoZ+1)*sizeof(char));
-    z[tamañoZ] = '\0'; //alamacenamos esos elementos en la cadena
+    int tamañoZ = cadenas+tamaño*strlen(x); //juntamos los tamaños de las cadenas
+    //cadena x
+    char** z=malloc((tamaño+1)*sizeof(char));
+    z[tamañoZ] = '\0'; //almacenamos esos elementos en la cadena
 
     //recorremos la segunda cadena
     int temp = 0;
-    for(int i=0;i<tamañoY;i++){
+    for(int i=0;i<tamaño;i++){
         if(i != 0){
             strcpy(z+temp,x);
             temp+=strlen(x);
@@ -94,16 +102,17 @@ char** join(char** y, char** x){
 }
 
 char** up(char** y, char** x){
-    int tamañoY=sizeof(y);
-    int tamañoX=sizeof(x);
     //se trata de unir los arrays mas no sus elementos   
     char** z;
-    for(int i=0;i<tamañoY;i++){
-        z[i] = y[i];   
-    }for(int j=0;j<tamañoX;j++){
+    //Cadena Y
+    for(int i=0;i<tamaño;i++){
+        z[i] = y[i];
+     //Cadena X      
+    }for(int j=0;j<tamaño;j++){
         z[j++]=x[j];
     }
-    for(int k=0;k<tamañoY+tamañoX;k++){
+    //Juntar el tamaño de ambas cadenas
+    for(int k=0;k<tamaño+tamaño;k++){
         return z[k];
     }
 }
